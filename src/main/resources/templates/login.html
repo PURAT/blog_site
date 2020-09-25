@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css">
+        <title>Выполните вход</title>
+    </head>
+    <body>
+        <div class="container">
+            <form th:action="@{/login}" method="post" class="form-signin">
+                <h2 class="form-signin-heading">Выполните вход</h2>
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">
+                        Неправильный логин или пароль.
+                    </div>
+                </div>
+                <p>
+                    <label for="username" class="sr-only">Имя пользователя</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Имя пользователя" autocomplete="off" required="" autofocus="">
+                </p>
+                <p>
+                    <label for="password" class="sr-only">Пароль</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Пароль" required="">
+                </p>
+                <input name="_csrf" type="hidden" value="98e425a0-2407-4531-832d-3c46e166d454">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+            </form>
+        </div>
+    </body>
+</html>
